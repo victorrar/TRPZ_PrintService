@@ -24,6 +24,7 @@ namespace TRPZ_PrintService.Areas.Identity
                     {
                         // options.SignIn.RequireConfirmedAccount = true;
                     })
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<TRPZ_PrintServiceContext>();
             });
         }

@@ -5,6 +5,20 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Print Service</h1>
+    <ul class=list-group>
+        @if (User.IsInRole("Client"))
+        {
+            <a href="/MyOrders" class="list-group-item list-group-item-action list-group-item-primary">My orders</a>
+        }
+        @if (User.IsInRole("Manager") || User.IsInRole("Admin"))
+        {
+            <a href="/OrdersToProcess" class="list-group-item list-group-item-action list-group-item-primary">Edit orders</a>
+            <a href="/OrdersToProcess" class="list-group-item list-group-item-action list-group-item-primary">Process orders</a>
+            <a href="/OrdersToProcess" class="list-group-item list-group-item-action list-group-item-primary">Edit clients</a>
+        }
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="/ManageStaff" class="list-group-item list-group-item-action list-group-item-primary">Manage staff</a>        }
+    </ul>
 </div>

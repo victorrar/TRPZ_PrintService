@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TRPZ_PrintService
 {
@@ -28,6 +29,10 @@ namespace TRPZ_PrintService
                 options.Conventions.AuthorizePage("/MyOrders");
                 
             });
+            // services.AddAuthorization(options =>
+            // {
+            //     options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,8 +54,10 @@ namespace TRPZ_PrintService
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            
             app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

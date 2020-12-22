@@ -1,0 +1,35 @@
+@page
+@model TRPZ_PrintService.Pages.EditMIO
+
+@{
+    Layout = "_Layout";
+}
+
+<form asp-page-handler="Edit" asp-route-mioid="@Model.mio.ModelInOrderId" enctype="multipart/form-data">
+    <div class="">
+        <h4>Any Heading</h4>
+        <label>Description</label>
+        <input class="form-control" type="text" asp-for="Fmodel.Description"/><br/>
+
+        <label>Material</label>
+        <select asp-for="Fmodel.MaterialId" asp-items="Model.Materials"></select>
+        <br/>
+
+        <label>Printer</label>
+        <select asp-for="Fmodel.PrinterId" asp-items="Model.Printers"></select>
+        <br/>
+
+        <label>Scale</label>
+        <input class="form-control" type="text" asp-for="Fmodel.Scale"/>
+        <br/>
+
+        <label>Post-processing</label>
+        <select asp-for="Fmodel.PostProcessingId" asp-items="Model.PostProcessings"></select>
+        <br/>
+
+        <label>HasSolubleSupports</label>
+        <input class="form-control" type="checkbox" asp-for="Fmodel.HasSolubleSupports"/><br/>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Apply changes</button>
+</form>

@@ -61,57 +61,22 @@
             <td>
                 @Html.DisplayFor(modelItem => order.Models.Count)
                 @* TODO add edit button *@
-                <button></button>
+                <a asp-page="/ModelInOrder" asp-route-id="@order.OrderId"><button class="btn btn-primary">Models</button></a>
             </td>
             <td>
-
+                @if (!(order.IsConfirmed || order.IsFinished))
+                {
+                    <form asp-page-handler="Remove" asp-route-orderId="@order.OrderId"><button class="btn btn-danger" type="submit">Remove</button></form>
+                }
             </td>
         </tr>
     }
     </tbody>
 </table>
 @* TODO add modal add window*@
-<button type="button" class="btn btn-primary" asp-page-handler="Create">
+<form asp-page-handler="Create">
+<button type="submit" class="btn btn-primary" >
     New Order
 </button>
+</form>
 
-@* <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> *@
-@* *@
-@*     <div class="modal-dialog"> *@
-@* *@
-@*         <!-- Modal Content: begins --> *@
-@*         <div class="modal-content"> *@
-@* *@
-@*             <!-- Modal Header --> *@
-@*             <div class="modal-header"> *@
-@*                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> *@
-@*                     <span aria-hidden="true">&times;</span> *@
-@*                 </button> *@
-@*                 <h4 class="modal-title" id="gridSystemModalLabel">Your Headings</h4> *@
-@*             </div> *@
-@* *@
-@*             <!-- Modal Body --> *@
-@*             $1$ TODO add asp action #1# *@
-@*             <form asp-page-handler="Create"> *@
-@*                 <div class="modal-body"> *@
-@*                     <div class="body-message"> *@
-@*                         <h4>Any Heading</h4> *@
-@*                         <label>Project Name</label> *@
-@*                         <input class="form-control" type="text" asp-for="Name"/><br/> *@
-@*                         <label>Project Name</label> *@
-@*                         <input class="form-control" type="text" asp-for="Type"/><br/> *@
-@*                     </div> *@
-@*                 </div> *@
-@* *@
-@*                 <!-- Modal Footer --> *@
-@*                 <div class="modal-footer"> *@
-@*                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button> *@
-@*                     <button type="submit" class="btn btn-primary">Save</button> *@
-@*                 </div> *@
-@*             </form> *@
-@* *@
-@*         </div> *@
-@*         <!-- Modal Content: ends --> *@
-@* *@
-@*     </div> *@
-@* </div> *@

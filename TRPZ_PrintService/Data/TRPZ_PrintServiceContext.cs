@@ -12,8 +12,7 @@ namespace TRPZ_PrintService.Data
 {
     public class TRPZ_PrintServiceContext : IdentityDbContext<TRPZ_PrintServiceUser>
     {
-        
-        public DbSet<Client> Clients { get; set; }
+        // public DbSet<Client> Clients { get; set; }
         // public DbSet<Manager> Managers { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Model3D> Models3D { get; set; }
@@ -23,7 +22,7 @@ namespace TRPZ_PrintService.Data
         public DbSet<PostProcessing> PostProcessings { get; set; }
         public DbSet<Printer> Printers { get; set; }
         public DbSet<PromoCode> PromoCodes { get; set; }
-        
+
         public TRPZ_PrintServiceContext(DbContextOptions<TRPZ_PrintServiceContext> options)
             : base(options)
         {
@@ -33,6 +32,14 @@ namespace TRPZ_PrintService.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ModelInOrder>().Property(mio => mio.Scale).HasDefaultValue(1);
+            modelBuilder.Entity<Order>()
+                .HasMany(o => o.Models)
+                .WithOne(p => p.Order)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<ModelInOrder>()
+                .HasOne(o => o.ModelSettings)
+                .WithOne(settings => settings.ModelInOrder)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -1,0 +1,78 @@
+@page
+@model TRPZ_PrintService.Pages.ManageOrders
+
+@{
+    Layout = "Shared/_Layout";
+}
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Client
+        </th>
+        <th>
+            OrderId
+        </th>
+        <th>
+            Order Status
+        </th>
+        <th>
+            Models
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var uRole in Model.UsersRoles)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => uRole.user.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => uRole.user.FirstName)
+                @Html.DisplayFor(modelItem => uRole.user.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => uRole.user.UserName)
+            </td>
+            <td>
+                @foreach (var role in uRole.roles)
+                {
+                    @Html.DisplayFor(modelItem => role)
+                    <br/>
+                }
+            </td>
+            <td>
+                <ul class="list-group">
+
+                    @if (!uRole.roles.Contains("Admin"))
+                    {
+                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Admin" >
+                            <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make admin</button>
+                        </form>                    }
+                    @if (!uRole.roles.Contains("Manager"))
+                    {
+                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Manager" >
+                            <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make manager</button>
+                        </form>                    }
+
+
+                    <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id"  >
+                        <button class="list-group-item list-group-item-action list-group-item-primary" asp-route-role="Client" type="submit">Make Client</button>
+                    </form>
+
+
+                    <form asp-page-handler="Delete" asp-route-userId="@uRole.user.Id" >
+                        <button class="list-group-item list-group-item-action list-group-item-danger" type="submit">Delete</button>
+                    </form>
+
+                </ul>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

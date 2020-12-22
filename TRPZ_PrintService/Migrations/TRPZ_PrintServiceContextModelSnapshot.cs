@@ -165,10 +165,6 @@ namespace TRPZ_PrintService.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("text");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -225,8 +221,6 @@ namespace TRPZ_PrintService.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("TRPZ_PrintServiceUser");
                 });
 
             modelBuilder.Entity("TRPZ_PrintService.Data.Material", b =>
@@ -288,9 +282,6 @@ namespace TRPZ_PrintService.Migrations
                     b.Property<int?>("Model3DId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ModelSettingsId")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("OrderId")
                         .HasColumnType("integer");
 
@@ -316,8 +307,6 @@ namespace TRPZ_PrintService.Migrations
 
                     b.HasIndex("Model3DId");
 
-                    b.HasIndex("ModelSettingsId");
-
                     b.HasIndex("OrderId");
 
                     b.HasIndex("PostProcessingId");
@@ -330,9 +319,7 @@ namespace TRPZ_PrintService.Migrations
             modelBuilder.Entity("TRPZ_PrintService.Data.ModelSettings", b =>
                 {
                     b.Property<int>("ModelSettingsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .UseIdentityByDefaultColumn();
+                        .HasColumnType("integer");
 
                     b.Property<int>("InfillPercentage")
                         .HasColumnType("integer");
@@ -460,23 +447,6 @@ namespace TRPZ_PrintService.Migrations
                     b.ToTable("PromoCodes");
                 });
 
-            modelBuilder.Entity("TRPZ_PrintService.Data.Client", b =>
-                {
-                    b.HasBaseType("TRPZ_PrintService.Areas.Identity.Data.TRPZ_PrintServiceUser");
-
-                    b.HasDiscriminator().HasValue("Client");
-                });
-
-            modelBuilder.Entity("TRPZ_PrintService.Data.Manager", b =>
-                {
-                    b.HasBaseType("TRPZ_PrintService.Areas.Identity.Data.TRPZ_PrintServiceUser");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("text");
-
-                    b.HasDiscriminator().HasValue("Manager");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -530,8 +500,8 @@ namespace TRPZ_PrintService.Migrations
 
             modelBuilder.Entity("TRPZ_PrintService.Data.ModelInOrder", b =>
                 {
-                    b.HasOne("TRPZ_PrintService.Data.Manager", "Manager")
-                        .WithMany("ModelsInOrders")
+                    b.HasOne("TRPZ_PrintService.Areas.Identity.Data.TRPZ_PrintServiceUser", "Manager")
+                        .WithMany()
                         .HasForeignKey("ManagerId");
 
                     b.HasOne("TRPZ_PrintService.Data.Material", "Material")
@@ -542,13 +512,10 @@ namespace TRPZ_PrintService.Migrations
                         .WithMany()
                         .HasForeignKey("Model3DId");
 
-                    b.HasOne("TRPZ_PrintService.Data.ModelSettings", "ModelSettings")
-                        .WithMany()
-                        .HasForeignKey("ModelSettingsId");
-
                     b.HasOne("TRPZ_PrintService.Data.Order", "Order")
                         .WithMany("Models")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("TRPZ_PrintService.Data.PostProcessing", "PostProcessing")
                         .WithMany("ModelsInOrders")
@@ -564,8 +531,6 @@ namespace TRPZ_PrintService.Migrations
 
                     b.Navigation("Model");
 
-                    b.Navigation("ModelSettings");
-
                     b.Navigation("Order");
 
                     b.Navigation("PostProcessing");
@@ -573,10 +538,21 @@ namespace TRPZ_PrintService.Migrations
                     b.Navigation("Printer");
                 });
 
+            modelBuilder.Entity("TRPZ_PrintService.Data.ModelSettings", b =>
+                {
+                    b.HasOne("TRPZ_PrintService.Data.ModelInOrder", "ModelInOrder")
+                        .WithOne("ModelSettings")
+                        .HasForeignKey("TRPZ_PrintService.Data.ModelSettings", "ModelSettingsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ModelInOrder");
+                });
+
             modelBuilder.Entity("TRPZ_PrintService.Data.Order", b =>
                 {
-                    b.HasOne("TRPZ_PrintService.Data.Client", "Client")
-                        .WithMany("Orders")
+                    b.HasOne("TRPZ_PrintService.Areas.Identity.Data.TRPZ_PrintServiceUser", "Client")
+                        .WithMany()
                         .HasForeignKey("ClientId");
 
                     b.HasOne("TRPZ_PrintService.Data.PromoCode", "PromoCode")
@@ -593,6 +569,11 @@ namespace TRPZ_PrintService.Migrations
                     b.Navigation("ModelsInOrders");
                 });
 
+            modelBuilder.Entity("TRPZ_PrintService.Data.ModelInOrder", b =>
+                {
+                    b.Navigation("ModelSettings");
+                });
+
             modelBuilder.Entity("TRPZ_PrintService.Data.Order", b =>
                 {
                     b.Navigation("Models");
@@ -606,16 +587,6 @@ namespace TRPZ_PrintService.Migrations
             modelBuilder.Entity("TRPZ_PrintService.Data.PromoCode", b =>
                 {
                     b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TRPZ_PrintService.Data.Client", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("TRPZ_PrintService.Data.Manager", b =>
-                {
-                    b.Navigation("ModelsInOrders");
                 });
 #pragma warning restore 612, 618
         }

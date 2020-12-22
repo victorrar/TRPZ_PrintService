@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TRPZ_PrintService.Areas.Identity.Data;
 
 namespace TRPZ_PrintService.Data
 {
@@ -12,7 +13,7 @@ namespace TRPZ_PrintService.Data
         public bool IsConfirmed { get; set; }
         public bool IsFinished { get; set; }
 
-        public Client Client { get; set; }
+        public TRPZ_PrintServiceUser Client { get; set; }
         public PromoCode PromoCode { get; set; }
 
         public List<ModelInOrder> Models { get; set; }

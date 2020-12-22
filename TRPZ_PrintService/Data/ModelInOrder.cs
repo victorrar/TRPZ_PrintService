@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using TRPZ_PrintService.Areas.Identity.Data;
 
 namespace TRPZ_PrintService.Data
 {
@@ -14,7 +15,7 @@ namespace TRPZ_PrintService.Data
         public ModelSettings ModelSettings { get; set; }
         public Material Material { get; set; }
         public PostProcessing PostProcessing { get; set; }
-        public Manager Manager { get; set; }
+        public TRPZ_PrintServiceUser Manager { get; set; }
         public Printer Printer { get; set; }
         public Model3D Model { get; set; }
 

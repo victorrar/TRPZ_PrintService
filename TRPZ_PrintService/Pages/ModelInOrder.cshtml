@@ -1,0 +1,150 @@
+@page
+@using TRPZ_PrintService.Data
+@model TRPZ_PrintService.Pages.ModelInOrderPage
+
+@{
+    Layout = "Shared/_Layout";
+    ViewData["Title"] = "My orders";
+}
+
+<h2>My orders</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Order ID
+        </th>
+        <th>
+            Material type
+        </th>
+        <th>
+            Has soluble supports
+        </th>
+        <th>
+            Total price
+        </th>
+        <th>
+            File
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var mio_model in Model.order.Models)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => mio_model.ModelInOrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mio_model.Material.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mio_model.HasSolubleSupports)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mio_model.PriceTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mio_model.Model.FilePath)
+            </td>
+            <td>
+                @if (!(Model.order.IsConfirmed || Model.order.IsFinished))
+                {
+                    <a asp-page="/EditMIO" asp-page-handler="Edit" asp-route-orderid="@Model.order.OrderId" asp-route-mioid="@mio_model.ModelInOrderId">
+                        <button class="btn btn-primary" type="submit">Edit</button>
+                    </a>
+                    <form asp-page-handler="Remove" asp-route-id="@Model.order.OrderId" asp-route-mioid="@mio_model.ModelInOrderId">
+                        <button class="btn btn-danger" type="submit">Remove</button>
+                    </form>                }
+                else
+                {
+                    <button class="btn btn-danger" disabled type="submit">Remove</button>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+@* TODO add modal add window*@
+
+@if (!(Model.order.IsConfirmed || Model.order.IsFinished))
+{
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-modal">
+        Add order
+    </button>
+    <form asp-page="/MyOrders" asp-page-handler="Send" asp-route-orderId="@Model.order.OrderId">
+        <button type="submit" class="btn btn-primary" >
+            Finalize order
+        </button>
+    </form>
+    <form asp-page="/MyOrders" asp-page-handler="Remove"  asp-route-orderId="@Model.order.OrderId">
+        <button type="submit" class="btn btn-danger">
+            Cancel order
+        </button>
+    </form>
+}
+
+<div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+        <!-- Modal Content: begins -->
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <form asp-page-handler="Create" asp-route-id="@Model.order.OrderId" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="body-message">
+                        <h4>Any Heading</h4>
+                        <label>Description</label>
+                        <input class="form-control" type="text" asp-for="Fmodel.Description"/><br/>
+
+                        <label>Material</label>
+                        <select asp-for="Fmodel.MaterialId" asp-items="Model.Materials"></select>
+                        <br/>
+
+                        <label>Printer</label>
+                        <select asp-for="Fmodel.PrinterId" asp-items="Model.Printers"></select>
+                        <br/>
+
+                        <label>Scale</label>
+                        <input class="form-control" type="text" asp-for="Fmodel.Scale"/>
+                        <br/>
+
+                        <label>Post-processing</label>
+                        <select asp-for="Fmodel.PostProcessingId" asp-items="Model.PostProcessings"></select>
+                        <br/>
+
+                        <label>HasSolubleSupports</label>
+                        <input class="form-control" type="checkbox" asp-for="Fmodel.HasSolubleSupports"/><br/>
+
+                        <label>.stl File</label>
+                        <input type="file" asp-for="Upload"/>
+
+
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+
+        </div>
+        <!-- Modal Content: ends -->
+
+    </div>
+</div>
