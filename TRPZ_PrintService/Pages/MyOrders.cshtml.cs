@@ -41,17 +41,17 @@ namespace TRPZ_PrintService.Pages
             var order = _context.Orders.Find(orderId);
             order.Status = Order.OrderStatus.Sent;
             await _context.SaveChangesAsync();
-            
+
             return new RedirectToPageResult("/MyOrders", "");
         }
-        
+
         public async Task<IActionResult> OnPostCancel(string? id, int orderId)
         {
             id ??= User.FindFirstValue(ClaimTypes.NameIdentifier);
             var order = _context.Orders.Find(orderId);
             order.Status = Order.OrderStatus.Cancelled;
             await _context.SaveChangesAsync();
-            
+
             return new RedirectToPageResult("/MyOrders", "");
         }
 
@@ -71,10 +71,7 @@ namespace TRPZ_PrintService.Pages
         public IActionResult OnPostRemove(string? id, int? orderId)
         {
             var order = _context.Orders.Find(orderId);
-            if (order == null)
-            {
-                return NotFound();
-            }
+            if (order == null) return NotFound();
 
             try
             {

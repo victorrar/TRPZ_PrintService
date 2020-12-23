@@ -21,7 +21,6 @@ namespace TRPZ_PrintService.Pages
 
         public void OnGet()
         {
-
         }
     }
 }

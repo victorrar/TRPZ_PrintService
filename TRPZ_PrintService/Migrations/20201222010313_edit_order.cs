@@ -7,23 +7,23 @@ namespace TRPZ_PrintService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<bool>(
-                name: "IsConfirmed",
-                table: "Orders",
-                type: "boolean",
+                "IsConfirmed",
+                "Orders",
+                "boolean",
                 nullable: false,
                 defaultValue: false);
 
             migrationBuilder.AddColumn<bool>(
-                name: "IsFinished",
-                table: "Orders",
-                type: "boolean",
+                "IsFinished",
+                "Orders",
+                "boolean",
                 nullable: false,
                 defaultValue: false);
 
             migrationBuilder.AddColumn<bool>(
-                name: "IsSent",
-                table: "Orders",
-                type: "boolean",
+                "IsSent",
+                "Orders",
+                "boolean",
                 nullable: false,
                 defaultValue: false);
         }
@@ -31,16 +31,16 @@ namespace TRPZ_PrintService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "IsConfirmed",
-                table: "Orders");
+                "IsConfirmed",
+                "Orders");
 
             migrationBuilder.DropColumn(
-                name: "IsFinished",
-                table: "Orders");
+                "IsFinished",
+                "Orders");
 
             migrationBuilder.DropColumn(
-                name: "IsSent",
-                table: "Orders");
+                "IsSent",
+                "Orders");
         }
     }
 }

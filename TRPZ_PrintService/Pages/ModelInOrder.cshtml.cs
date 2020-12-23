@@ -25,7 +25,7 @@ namespace TRPZ_PrintService.Pages
             public double Scale { get; set; }
             public bool HasSolubleSupports { get; set; }
             public int PostProcessingId { get; set; }
-            public String Description { get; set; }
+            public string Description { get; set; }
 
             public int InfillPercentage { get; set; }
             public int Layerheight { get; set; }
@@ -51,25 +51,20 @@ namespace TRPZ_PrintService.Pages
 
         public IActionResult OnGet(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            
+
             order = _context.Orders.Include(order1 => order1.Models)
                 .ThenInclude(inOrder => inOrder.Model)
                 .Include(order1 => order1.Models)
                 .ThenInclude(inOrder => inOrder.ModelSettings)
                 .First(order1 => order1.OrderId == id);
-            if (order == null)
-            {
-                return NotFound();
-            }
+            if (order == null) return NotFound();
 
             Printers = new SelectList(_context.Printers.ToList(), nameof(Printer.PrinterId), nameof(Printer.Name));
             Materials = new SelectList(_context.Materials.ToList(), nameof(Material.MaterialId), nameof(Material.Name));
-            PostProcessings = new SelectList(_context.PostProcessings.ToList(), nameof(PostProcessing.PostProcessingId), nameof(PostProcessing.Name));
+            PostProcessings = new SelectList(_context.PostProcessings.ToList(), nameof(PostProcessing.PostProcessingId),
+                nameof(PostProcessing.Name));
 
             Fmodel = new FormModel();
             Fmodel.Scale = 100;
@@ -82,9 +77,10 @@ namespace TRPZ_PrintService.Pages
             var modelInOrder = await _context.ModelsInOrders.FindAsync(mioid);
             _context.ModelsInOrders.Remove(modelInOrder);
             _context.SaveChanges();
-            
-            return new RedirectToPageResult("/ModelInOrder", "", new{id});
+
+            return new RedirectToPageResult("/ModelInOrder", "", new {id});
         }
+
         public async Task<IActionResult> OnPostCreate(int id)
         {
             order = _context.Orders.Find(id);
@@ -100,13 +96,13 @@ namespace TRPZ_PrintService.Pages
             {
                 InfillPercentage = Fmodel.InfillPercentage,
                 LayerHeight = Fmodel.Layerheight,
-                NozzleDiameter = Fmodel.NozzleDiameter,
+                NozzleDiameter = Fmodel.NozzleDiameter
             };
 
             var m = new Model3D()
             {
                 Description = Fmodel.Description,
-                FilePath = uploadFileName,
+                FilePath = uploadFileName
             };
 
             var printer = await _context.Printers.FindAsync(Fmodel.PrinterId);
@@ -123,13 +119,13 @@ namespace TRPZ_PrintService.Pages
                 Scale = Fmodel.Scale,
                 ModelSettings = ms,
                 PostProcessing = pp,
-                HasSolubleSupports = Fmodel.HasSolubleSupports,
+                HasSolubleSupports = Fmodel.HasSolubleSupports
             };
 
             order.Models.Add(mio);
             await _context.SaveChangesAsync();
 
-            return new RedirectToPageResult("/ModelInOrder", "", new{id});
+            return new RedirectToPageResult("/ModelInOrder", "", new {id});
         }
     }
 }

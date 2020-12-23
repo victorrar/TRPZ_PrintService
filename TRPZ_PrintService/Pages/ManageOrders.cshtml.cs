@@ -15,9 +15,9 @@ namespace TRPZ_PrintService.Pages
     {
         private TRPZ_PrintServiceContext _context;
         private UserManager<TRPZ_PrintServiceUser> _userManager;
-        
+
         public IList<Order> Orders { get; set; }
-        
+
         public ManageOrders(TRPZ_PrintServiceContext context, UserManager<TRPZ_PrintServiceUser> userManager)
         {
             _context = context;
@@ -26,12 +26,8 @@ namespace TRPZ_PrintService.Pages
 
         public async Task<IActionResult> OnGet(string? type)
         {
-            
-            
-            
             type ??= "all";
             if (type == "unprocessed")
-            {
                 Orders = await _context.Orders
                     .Include(order => order.Client)
                     .Include(order => order.Models)
@@ -39,16 +35,13 @@ namespace TRPZ_PrintService.Pages
                                     order.Status == Order.OrderStatus.Confirmed)
                     .OrderByDescending(order => order.Timestamp)
                     .ToListAsync();
-            }
-            if(type =="all")
-            {
+            if (type == "all")
                 Orders = await _context.Orders
                     .Include(order => order.Client)
                     .Include(order => order.Models)
                     .Where(order => order.Status != Order.OrderStatus.NotSent)
                     .OrderByDescending(order => order.Timestamp)
                     .ToListAsync();
-            }
 
 
             return Page();
@@ -57,20 +50,20 @@ namespace TRPZ_PrintService.Pages
         public async Task<IActionResult> OnPostSetStatus(int orderId, string status, string returnUrl)
         {
             var order = _context.Orders.Find(orderId);
-            if(status == "not_sent")
+            if (status == "not_sent")
                 order.Status = Order.OrderStatus.NotSent;
-            if(status == "sent")
+            if (status == "sent")
                 order.Status = Order.OrderStatus.Sent;
-            if(status == "confirmed")
+            if (status == "confirmed")
                 order.Status = Order.OrderStatus.Confirmed;
-            if(status == "finished")
+            if (status == "finished")
                 order.Status = Order.OrderStatus.Finished;
-            if(status == "cancelled")
+            if (status == "cancelled")
                 order.Status = Order.OrderStatus.Cancelled;
 
 
             _context.SaveChanges();
-            var a =  Request.Headers["Referer"].ToString();
+            var a = Request.Headers["Referer"].ToString();
             return Redirect(a);
             // return new RedirectToPageResult("/ManageOrders", "");
         }

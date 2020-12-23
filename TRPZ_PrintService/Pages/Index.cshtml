@@ -16,8 +16,7 @@
             @if (User.IsInRole("Manager") || User.IsInRole("Admin"))
             {
                 <a asp-page="/ManageOrders" asp-route-type="unprocessed" class="list-group-item list-group-item-action list-group-item-primary">Unprocessed orders</a>
-                <a asp-page="/ManageOrders" asp-route-type="all" class="list-group-item list-group-item-action list-group-item-primary">All orders</a>
-            }
+                <a asp-page="/ManageOrders" asp-route-type="all" class="list-group-item list-group-item-action list-group-item-primary">All orders</a>            }
             @if (User.IsInRole("Admin"))
             {
                 <a asp-page="/ManageStaff" class="list-group-item list-group-item-action list-group-item-primary">Manage staff</a>            }

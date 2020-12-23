@@ -25,8 +25,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
             _logger = logger;
         }
 
-        [BindProperty]
-        public InputModel Input { get; set; }
+        [BindProperty] public InputModel Input { get; set; }
 
         public class InputModel
         {
@@ -40,10 +39,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnGet()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             RequirePassword = await _userManager.HasPasswordAsync(user);
             return Page();
@@ -52,27 +48,20 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             RequirePassword = await _userManager.HasPasswordAsync(user);
             if (RequirePassword)
-            {
                 if (!await _userManager.CheckPasswordAsync(user, Input.Password))
                 {
                     ModelState.AddModelError(string.Empty, "Incorrect password.");
                     return Page();
                 }
-            }
 
             var result = await _userManager.DeleteAsync(user);
             var userId = await _userManager.GetUserIdAsync(user);
             if (!result.Succeeded)
-            {
                 throw new InvalidOperationException($"Unexpected error occurred deleting user with ID '{userId}'.");
-            }
 
             await _signInManager.SignOutAsync();
 

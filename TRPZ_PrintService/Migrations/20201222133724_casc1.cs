@@ -7,22 +7,22 @@ namespace TRPZ_PrintService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_ModelsInOrders_Orders_OrderId",
-                table: "ModelsInOrders");
+                "FK_ModelsInOrders_Orders_OrderId",
+                "ModelsInOrders");
 
             migrationBuilder.DropColumn(
-                name: "Discriminator",
-                table: "AspNetUsers");
+                "Discriminator",
+                "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Type",
-                table: "AspNetUsers");
+                "Type",
+                "AspNetUsers");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_ModelsInOrders_Orders_OrderId",
-                table: "ModelsInOrders",
-                column: "OrderId",
-                principalTable: "Orders",
+                "FK_ModelsInOrders_Orders_OrderId",
+                "ModelsInOrders",
+                "OrderId",
+                "Orders",
                 principalColumn: "OrderId",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -30,27 +30,27 @@ namespace TRPZ_PrintService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_ModelsInOrders_Orders_OrderId",
-                table: "ModelsInOrders");
+                "FK_ModelsInOrders_Orders_OrderId",
+                "ModelsInOrders");
 
             migrationBuilder.AddColumn<string>(
-                name: "Discriminator",
-                table: "AspNetUsers",
-                type: "text",
+                "Discriminator",
+                "AspNetUsers",
+                "text",
                 nullable: false,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
-                name: "Type",
-                table: "AspNetUsers",
-                type: "text",
+                "Type",
+                "AspNetUsers",
+                "text",
                 nullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_ModelsInOrders_Orders_OrderId",
-                table: "ModelsInOrders",
-                column: "OrderId",
-                principalTable: "Orders",
+                "FK_ModelsInOrders_Orders_OrderId",
+                "ModelsInOrders",
+                "OrderId",
+                "Orders",
                 principalColumn: "OrderId",
                 onDelete: ReferentialAction.Restrict);
         }

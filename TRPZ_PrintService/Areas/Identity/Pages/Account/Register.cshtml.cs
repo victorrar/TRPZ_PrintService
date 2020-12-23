@@ -102,17 +102,11 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
                     //add client role
 
                     if (!_roleManager.Roles.Any(role => role.Name == "Client"))
-                    {
                         await _roleManager.CreateAsync(new IdentityRole("Client"));
-                    }
                     if (!_roleManager.Roles.Any(role => role.Name == "Manager"))
-                    {
                         await _roleManager.CreateAsync(new IdentityRole("Manager"));
-                    }
                     if (!_roleManager.Roles.Any(role => role.Name == "Admin"))
-                    {
                         await _roleManager.CreateAsync(new IdentityRole("Admin"));
-                    }
 
                     await _userManager.AddToRoleAsync(user, "Client");
 
@@ -123,9 +117,9 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new {area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl},
-                        protocol: Request.Scheme);
+                        null,
+                        new {area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl},
+                        Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
@@ -136,15 +130,12 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        await _signInManager.SignInAsync(user, false);
                         return LocalRedirect(returnUrl);
                     }
                 }
 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                foreach (var error in result.Errors) ModelState.AddModelError(string.Empty, error.Description);
             }
 
             // If we got this far, something failed, redisplay form

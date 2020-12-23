@@ -18,27 +18,21 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
         private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
 
-        public ConfirmEmailChangeModel(UserManager<TRPZ_PrintServiceUser> userManager, SignInManager<TRPZ_PrintServiceUser> signInManager)
+        public ConfirmEmailChangeModel(UserManager<TRPZ_PrintServiceUser> userManager,
+            SignInManager<TRPZ_PrintServiceUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
-        [TempData]
-        public string StatusMessage { get; set; }
+        [TempData] public string StatusMessage { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string userId, string email, string code)
         {
-            if (userId == null || email == null || code == null)
-            {
-                return RedirectToPage("/Index");
-            }
+            if (userId == null || email == null || code == null) return RedirectToPage("/Index");
 
             var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{userId}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{userId}'.");
 
             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
             var result = await _userManager.ChangeEmailAsync(user, email, code);

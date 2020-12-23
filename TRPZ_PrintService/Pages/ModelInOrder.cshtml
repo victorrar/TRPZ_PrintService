@@ -85,14 +85,14 @@
             Add model
         </button>
     }
-    @if ((Model.order.Status == Order.OrderStatus.NotSent))
+    @if (Model.order.Status == Order.OrderStatus.NotSent)
     {
         <form asp-page="/MyOrders" asp-page-handler="Send" asp-route-orderId="@Model.order.OrderId" class="ml-2">
             <button type="submit" class="btn btn-primary">
                 Send order
             </button>
         </form>    }
-    @if ((Model.order.Status == Order.OrderStatus.NotSent))
+    @if (Model.order.Status == Order.OrderStatus.NotSent)
     {
         <form asp-page="/MyOrders" asp-page-handler="Remove" asp-route-orderId="@Model.order.OrderId" class="ml-2">
             <button type="submit" class="btn btn-danger">
@@ -106,25 +106,22 @@
             <button type="submit" class="btn btn-warning">
                 Cancel order
             </button>
-        </form>        
-    }
+        </form>    }
     @if (canBeEdited && Model.order.Status == Order.OrderStatus.Sent)
-        {
-            <form asp-page-handler="SetStatus" asp-route-status="confirmed" asp-route-orderId="@Model.order.OrderId" class="ml-2">
-                <button type="submit" class="btn btn-primary">
-                    Confirm order
-                </button>
-            </form>            
-        }
+    {
+        <form asp-page-handler="SetStatus" asp-route-status="confirmed" asp-route-orderId="@Model.order.OrderId" class="ml-2">
+            <button type="submit" class="btn btn-primary">
+                Confirm order
+            </button>
+        </form>    }
     @if (canBeEdited && Model.order.Status == Order.OrderStatus.Confirmed)
-            {
-                <form asp-page-handler="SetStatus" asp-route-status="finished" asp-route-orderId="@Model.order.OrderId" class="ml-2">
-                    <button type="submit" class="btn btn-primary">
-                        Finish order
-                    </button>
-                </form>            
-            }
-   
+    {
+        <form asp-page-handler="SetStatus" asp-route-status="finished" asp-route-orderId="@Model.order.OrderId" class="ml-2">
+            <button type="submit" class="btn btn-primary">
+                Finish order
+            </button>
+        </form>    }
+
 
 </div>
 

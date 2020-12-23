@@ -20,7 +20,7 @@ namespace TRPZ_PrintService.Pages
         public class UserRole
         {
             public TRPZ_PrintServiceUser user { get; set; }
-            public IList<String> roles { get; set; }
+            public IList<string> roles { get; set; }
         }
 
 
@@ -42,7 +42,7 @@ namespace TRPZ_PrintService.Pages
                 UsersRoles.Add(new UserRole()
                 {
                     roles = r.Result,
-                    user = user,
+                    user = user
                 });
             });
 
@@ -61,10 +61,8 @@ namespace TRPZ_PrintService.Pages
             }
 
             if (role == "Manager")
-            {
                 // await _userManager.RemoveFromRoleAsync(user, "Admin");
                 await _userManager.AddToRoleAsync(user, "Manager");
-            }
 
             if (role == "Client")
             {
@@ -72,6 +70,7 @@ namespace TRPZ_PrintService.Pages
                 await _userManager.RemoveFromRoleAsync(user, "Manager");
                 await _userManager.AddToRoleAsync(user, "Client");
             }
+
             return new RedirectToPageResult("/ManageStaff", "");
         }
 

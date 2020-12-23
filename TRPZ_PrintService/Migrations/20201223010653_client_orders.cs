@@ -7,14 +7,14 @@ namespace TRPZ_PrintService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Orders_AspNetUsers_ClientId",
-                table: "Orders");
+                "FK_Orders_AspNetUsers_ClientId",
+                "Orders");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Orders_AspNetUsers_ClientId",
-                table: "Orders",
-                column: "ClientId",
-                principalTable: "AspNetUsers",
+                "FK_Orders_AspNetUsers_ClientId",
+                "Orders",
+                "ClientId",
+                "AspNetUsers",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -22,14 +22,14 @@ namespace TRPZ_PrintService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Orders_AspNetUsers_ClientId",
-                table: "Orders");
+                "FK_Orders_AspNetUsers_ClientId",
+                "Orders");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Orders_AspNetUsers_ClientId",
-                table: "Orders",
-                column: "ClientId",
-                principalTable: "AspNetUsers",
+                "FK_Orders_AspNetUsers_ClientId",
+                "Orders",
+                "ClientId",
+                "AspNetUsers",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }

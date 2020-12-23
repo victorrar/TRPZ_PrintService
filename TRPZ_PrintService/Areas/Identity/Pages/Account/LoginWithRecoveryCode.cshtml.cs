@@ -18,14 +18,14 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
         private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
 
-        public LoginWithRecoveryCodeModel(SignInManager<TRPZ_PrintServiceUser> signInManager, ILogger<LoginWithRecoveryCodeModel> logger)
+        public LoginWithRecoveryCodeModel(SignInManager<TRPZ_PrintServiceUser> signInManager,
+            ILogger<LoginWithRecoveryCodeModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
         }
 
-        [BindProperty]
-        public InputModel Input { get; set; }
+        [BindProperty] public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
 
@@ -42,10 +42,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
         {
             // Ensure the user has gone through the username & password screen first
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-            if (user == null)
-            {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
-            }
+            if (user == null) throw new InvalidOperationException($"Unable to load two-factor authentication user.");
 
             ReturnUrl = returnUrl;
 
@@ -54,16 +51,10 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-            if (user == null)
-            {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
-            }
+            if (user == null) throw new InvalidOperationException($"Unable to load two-factor authentication user.");
 
             var recoveryCode = Input.RecoveryCode.Replace(" ", string.Empty);
 
@@ -74,6 +65,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
                 _logger.LogInformation("User with ID '{UserId}' logged in with a recovery code.", user.Id);
                 return LocalRedirect(returnUrl ?? Url.Content("~/"));
             }
+
             if (result.IsLockedOut)
             {
                 _logger.LogWarning("User with ID '{UserId}' account locked out.", user.Id);

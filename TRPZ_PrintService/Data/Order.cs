@@ -17,14 +17,13 @@ namespace TRPZ_PrintService.Data
         public PromoCode PromoCode { get; set; }
 
         public List<ModelInOrder> Models { get; set; }
-        
+
         [NotMapped]
         public int PriceTotal
         {
             get { return Models.Sum(x => x.PriceTotal) + Models.Sum(x => x.PostProcessing.Price); }
         }
-        
-        
+
 
         public enum OrderStatus
         {
@@ -32,9 +31,9 @@ namespace TRPZ_PrintService.Data
             Sent,
             Confirmed,
             Finished,
-            Cancelled,
-            
+            Cancelled
         }
+
         public Order()
         {
             Models = new List<ModelInOrder>();

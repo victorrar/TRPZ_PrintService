@@ -8,31 +8,31 @@ namespace TRPZ_PrintService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_ModelsInOrders_ModelsSettings_ModelSettingsId",
-                table: "ModelsInOrders");
+                "FK_ModelsInOrders_ModelsSettings_ModelSettingsId",
+                "ModelsInOrders");
 
             migrationBuilder.DropIndex(
-                name: "IX_ModelsInOrders_ModelSettingsId",
-                table: "ModelsInOrders");
+                "IX_ModelsInOrders_ModelSettingsId",
+                "ModelsInOrders");
 
             migrationBuilder.DropColumn(
-                name: "ModelSettingsId",
-                table: "ModelsInOrders");
+                "ModelSettingsId",
+                "ModelsInOrders");
 
             migrationBuilder.AlterColumn<int>(
-                name: "ModelSettingsId",
-                table: "ModelsSettings",
-                type: "integer",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "integer")
+                    "ModelSettingsId",
+                    "ModelsSettings",
+                    "integer",
+                    nullable: false,
+                    oldClrType: typeof(int),
+                    oldType: "integer")
                 .OldAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_ModelsSettings_ModelsInOrders_ModelSettingsId",
-                table: "ModelsSettings",
-                column: "ModelSettingsId",
-                principalTable: "ModelsInOrders",
+                "FK_ModelsSettings_ModelsInOrders_ModelSettingsId",
+                "ModelsSettings",
+                "ModelSettingsId",
+                "ModelsInOrders",
                 principalColumn: "ModelInOrderId",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -40,34 +40,34 @@ namespace TRPZ_PrintService.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_ModelsSettings_ModelsInOrders_ModelSettingsId",
-                table: "ModelsSettings");
+                "FK_ModelsSettings_ModelsInOrders_ModelSettingsId",
+                "ModelsSettings");
 
             migrationBuilder.AlterColumn<int>(
-                name: "ModelSettingsId",
-                table: "ModelsSettings",
-                type: "integer",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "integer")
+                    "ModelSettingsId",
+                    "ModelsSettings",
+                    "integer",
+                    nullable: false,
+                    oldClrType: typeof(int),
+                    oldType: "integer")
                 .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             migrationBuilder.AddColumn<int>(
-                name: "ModelSettingsId",
-                table: "ModelsInOrders",
-                type: "integer",
+                "ModelSettingsId",
+                "ModelsInOrders",
+                "integer",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ModelsInOrders_ModelSettingsId",
-                table: "ModelsInOrders",
-                column: "ModelSettingsId");
+                "IX_ModelsInOrders_ModelSettingsId",
+                "ModelsInOrders",
+                "ModelSettingsId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_ModelsInOrders_ModelsSettings_ModelSettingsId",
-                table: "ModelsInOrders",
-                column: "ModelSettingsId",
-                principalTable: "ModelsSettings",
+                "FK_ModelsInOrders_ModelsSettings_ModelSettingsId",
+                "ModelsInOrders",
+                "ModelSettingsId",
+                "ModelsSettings",
                 principalColumn: "ModelSettingsId",
                 onDelete: ReferentialAction.Restrict);
         }

@@ -9,13 +9,15 @@ using TRPZ_PrintService.Areas.Identity.Data;
 using TRPZ_PrintService.Data;
 
 [assembly: HostingStartup(typeof(TRPZ_PrintService.Areas.Identity.IdentityHostingStartup))]
+
 namespace TRPZ_PrintService.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
                 services.AddDbContext<TRPZ_PrintServiceContext>(options =>
                     options.UseNpgsql(
                         "Host=localhost;Port=5432;Database=printdb;Username=printuser;Password=printpasswd"));

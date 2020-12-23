@@ -24,11 +24,7 @@ namespace TRPZ_PrintService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages(options =>
-            {
-                options.Conventions.AuthorizePage("/MyOrders");
-                
-            });
+            services.AddRazorPages(options => { options.Conventions.AuthorizePage("/MyOrders"); });
             // services.AddAuthorization(options =>
             // {
             //     options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -54,15 +50,12 @@ namespace TRPZ_PrintService
 
             app.UseRouting();
 
-            
+
             app.UseAuthentication();
             app.UseAuthorization();
-            
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+
+            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
     }
 }

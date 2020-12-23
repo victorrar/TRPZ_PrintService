@@ -36,11 +36,9 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 
         public bool IsEmailConfirmed { get; set; }
 
-        [TempData]
-        public string StatusMessage { get; set; }
+        [TempData] public string StatusMessage { get; set; }
 
-        [BindProperty]
-        public InputModel Input { get; set; }
+        [BindProperty] public InputModel Input { get; set; }
 
         public class InputModel
         {
@@ -57,7 +55,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                NewEmail = email,
+                NewEmail = email
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -66,10 +64,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             await LoadAsync(user);
             return Page();
@@ -78,10 +73,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostChangeEmailAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             if (!ModelState.IsValid)
             {
@@ -97,9 +89,9 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                 var callbackUrl = Url.Page(
                     "/Account/ConfirmEmailChange",
-                    pageHandler: null,
-                    values: new { userId = userId, email = Input.NewEmail, code = code },
-                    protocol: Request.Scheme);
+                    null,
+                    new {userId = userId, email = Input.NewEmail, code = code},
+                    Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
                     "Confirm your email",
@@ -116,10 +108,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostSendVerificationEmailAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             if (!ModelState.IsValid)
             {
@@ -133,9 +122,9 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
             var callbackUrl = Url.Page(
                 "/Account/ConfirmEmail",
-                pageHandler: null,
-                values: new { area = "Identity", userId = userId, code = code },
-                protocol: Request.Scheme);
+                null,
+                new {area = "Identity", userId = userId, code = code},
+                Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
                 "Confirm your email",

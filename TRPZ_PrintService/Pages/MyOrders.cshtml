@@ -79,17 +79,17 @@
                     <a asp-page="/ModelInOrder" asp-route-id="@order.OrderId" class="mr-2">
                         <button class="btn btn-primary">Models</button>
                     </a>
-                    @if ((order.Status == Order.OrderStatus.NotSent))
+                    @if (order.Status == Order.OrderStatus.NotSent)
                     {
                         <form asp-page-handler="Send" asp-route-orderId="@order.OrderId" class="mr-2">
                             <button class="btn btn-primary" type="submit">Send</button>
                         </form>                    }
-                    @if ((order.Status == Order.OrderStatus.NotSent))
+                    @if (order.Status == Order.OrderStatus.NotSent)
                     {
                         <form asp-page-handler="Remove" asp-route-orderId="@order.OrderId" class="mr-2">
                             <button class="btn btn-danger" type="submit">Remove</button>
                         </form>                    }
-                    @if ((order.Status == Order.OrderStatus.Sent))
+                    @if (order.Status == Order.OrderStatus.Sent)
                     {
                         <form asp-page-handler="Cancel" asp-route-orderId="@order.OrderId" class="mr-2">
                             <button class="btn btn-warning" type="submit">Cancel</button>
