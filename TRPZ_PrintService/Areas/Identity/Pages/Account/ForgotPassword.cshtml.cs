@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Encodings.Web;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -17,8 +15,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly IEmailSender _emailSender;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public ForgotPasswordModel(UserManager<TRPZ_PrintServiceUser> userManager, IEmailSender emailSender)
         {
@@ -27,11 +25,6 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
         }
 
         [BindProperty] public InputModel Input { get; set; }
-
-        public class InputModel
-        {
-            [Required] [EmailAddress] public string Email { get; set; }
-        }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -61,6 +54,11 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
             }
 
             return Page();
+        }
+
+        public class InputModel
+        {
+            [Required] [EmailAddress] public string Email { get; set; }
         }
     }
 }

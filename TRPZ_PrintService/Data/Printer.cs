@@ -1,6 +1,3 @@
-using System;
-using System.Drawing;
-
 namespace TRPZ_PrintService.Data
 {
     public class Printer

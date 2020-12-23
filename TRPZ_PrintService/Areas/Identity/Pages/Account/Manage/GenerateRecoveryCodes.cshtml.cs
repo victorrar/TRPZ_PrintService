@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -12,8 +11,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
     public class GenerateRecoveryCodesModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly ILogger<GenerateRecoveryCodesModel> _logger;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public GenerateRecoveryCodesModel(
             UserManager<TRPZ_PrintServiceUser> userManager,

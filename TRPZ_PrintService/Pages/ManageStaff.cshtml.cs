@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,15 +12,7 @@ namespace TRPZ_PrintService.Pages
     public class ManageStaff : PageModel
     {
         private TRPZ_PrintServiceContext _context;
-        private UserManager<TRPZ_PrintServiceUser> _userManager;
-
-        public IList<UserRole> UsersRoles { get; set; }
-
-        public class UserRole
-        {
-            public TRPZ_PrintServiceUser user { get; set; }
-            public IList<string> roles { get; set; }
-        }
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
 
         public ManageStaff(TRPZ_PrintServiceContext context, UserManager<TRPZ_PrintServiceUser> userManager)
@@ -29,6 +20,8 @@ namespace TRPZ_PrintService.Pages
             _context = context;
             _userManager = userManager;
         }
+
+        public IList<UserRole> UsersRoles { get; set; }
 
         public async Task<IActionResult> OnGet()
         {
@@ -39,7 +32,7 @@ namespace TRPZ_PrintService.Pages
             {
                 var r = _userManager.GetRolesAsync(user);
                 r.Wait();
-                UsersRoles.Add(new UserRole()
+                UsersRoles.Add(new UserRole
                 {
                     roles = r.Result,
                     user = user
@@ -81,6 +74,12 @@ namespace TRPZ_PrintService.Pages
 
 
             return new RedirectToPageResult("/ManageStaff", "");
+        }
+
+        public class UserRole
+        {
+            public TRPZ_PrintServiceUser user { get; set; }
+            public IList<string> roles { get; set; }
         }
     }
 }

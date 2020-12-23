@@ -8,6 +8,20 @@ namespace TRPZ_PrintService.Data
 {
     public class Order
     {
+        public enum OrderStatus
+        {
+            NotSent,
+            Sent,
+            Confirmed,
+            Finished,
+            Cancelled
+        }
+
+        public Order()
+        {
+            Models = new List<ModelInOrder>();
+        }
+
         public int OrderId { get; set; }
         public DateTime Timestamp { get; set; }
         public TimeSpan TotalPrintTime { get; set; }
@@ -22,21 +36,6 @@ namespace TRPZ_PrintService.Data
         public int PriceTotal
         {
             get { return Models.Sum(x => x.PriceTotal) + Models.Sum(x => x.PostProcessing.Price); }
-        }
-
-
-        public enum OrderStatus
-        {
-            NotSent,
-            Sent,
-            Confirmed,
-            Finished,
-            Cancelled
-        }
-
-        public Order()
-        {
-            Models = new List<ModelInOrder>();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -14,8 +13,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
     public class DownloadPersonalDataModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly ILogger<DownloadPersonalDataModel> _logger;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public DownloadPersonalDataModel(
             UserManager<TRPZ_PrintServiceUser> userManager,

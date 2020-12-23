@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -15,8 +12,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ConfirmEmailChangeModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public ConfirmEmailChangeModel(UserManager<TRPZ_PrintServiceUser> userManager,
             SignInManager<TRPZ_PrintServiceUser> signInManager)

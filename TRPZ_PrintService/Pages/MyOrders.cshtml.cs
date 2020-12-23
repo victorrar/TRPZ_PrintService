@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using TRPZ_PrintService.Data;
-
 
 namespace TRPZ_PrintService.Pages
 {
     public class MyOrders : PageModel
     {
-        private TRPZ_PrintServiceContext _context;
-
-        [BindProperty] public List<Order> Orders { get; set; }
+        private readonly TRPZ_PrintServiceContext _context;
 
         public MyOrders(TRPZ_PrintServiceContext context)
         {
             _context = context;
         }
+
+        [BindProperty] public List<Order> Orders { get; set; }
 
         public void OnGet(string? id)
         {

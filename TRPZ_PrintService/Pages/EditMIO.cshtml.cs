@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,7 +9,12 @@ namespace TRPZ_PrintService.Pages
 {
     public class EditMIO : PageModel
     {
-        private TRPZ_PrintServiceContext _context;
+        private readonly TRPZ_PrintServiceContext _context;
+
+        public EditMIO(TRPZ_PrintServiceContext context)
+        {
+            _context = context;
+        }
 
         public SelectList Materials { get; set; }
 
@@ -20,29 +24,7 @@ namespace TRPZ_PrintService.Pages
         [BindProperty] public Order order { get; set; }
         public ModelInOrder mio { get; set; }
 
-
-        public class FormModel
-        {
-            public double Scale { get; set; }
-            public bool HasSolubleSupports { get; set; }
-            public int PostProcessingId { get; set; }
-            public string Description { get; set; }
-
-            public int InfillPercentage { get; set; }
-            public int Layerheight { get; set; }
-            public int NozzleDiameter { get; set; }
-
-            public int PrinterId { get; set; }
-            public int MaterialId { get; set; }
-            public int Price { get; set; }
-        }
-
         [BindProperty] public FormModel Fmodel { get; set; }
-
-        public EditMIO(TRPZ_PrintServiceContext context)
-        {
-            _context = context;
-        }
 
 
         public IActionResult OnGetEdit(int? orderId, int mioid)
@@ -113,6 +95,23 @@ namespace TRPZ_PrintService.Pages
 
 
             return new RedirectToPageResult("/ModelInOrder", "", new {id = order.OrderId});
+        }
+
+
+        public class FormModel
+        {
+            public double Scale { get; set; }
+            public bool HasSolubleSupports { get; set; }
+            public int PostProcessingId { get; set; }
+            public string Description { get; set; }
+
+            public int InfillPercentage { get; set; }
+            public int Layerheight { get; set; }
+            public int NozzleDiameter { get; set; }
+
+            public int PrinterId { get; set; }
+            public int MaterialId { get; set; }
+            public int Price { get; set; }
         }
     }
 }

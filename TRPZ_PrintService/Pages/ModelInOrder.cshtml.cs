@@ -15,32 +15,8 @@ namespace TRPZ_PrintService.Pages
 {
     public class ModelInOrderPage : PageModel
     {
-        private TRPZ_PrintServiceContext _context;
-        private IWebHostEnvironment _environment;
-
-        [BindProperty] public Order order { get; set; }
-
-        public class FormModel
-        {
-            public double Scale { get; set; }
-            public bool HasSolubleSupports { get; set; }
-            public int PostProcessingId { get; set; }
-            public string Description { get; set; }
-
-            public int InfillPercentage { get; set; }
-            public int Layerheight { get; set; }
-            public int NozzleDiameter { get; set; }
-
-            public int PrinterId { get; set; }
-            public int MaterialId { get; set; }
-        }
-
-        [BindProperty] public FormModel Fmodel { get; set; }
-        public SelectList Printers { get; set; }
-
-        public SelectList Materials { get; set; }
-        public SelectList PostProcessings { get; set; }
-        [Required] [BindProperty] public IFormFile Upload { get; set; }
+        private readonly TRPZ_PrintServiceContext _context;
+        private readonly IWebHostEnvironment _environment;
 
 
         public ModelInOrderPage(TRPZ_PrintServiceContext context, IWebHostEnvironment environment)
@@ -48,6 +24,15 @@ namespace TRPZ_PrintService.Pages
             _context = context;
             _environment = environment;
         }
+
+        [BindProperty] public Order order { get; set; }
+
+        [BindProperty] public FormModel Fmodel { get; set; }
+        public SelectList Printers { get; set; }
+
+        public SelectList Materials { get; set; }
+        public SelectList PostProcessings { get; set; }
+        [Required] [BindProperty] public IFormFile Upload { get; set; }
 
         public IActionResult OnGet(int? id)
         {
@@ -92,14 +77,14 @@ namespace TRPZ_PrintService.Pages
                 await Upload.CopyToAsync(fileStream);
             }
 
-            var ms = new ModelSettings()
+            var ms = new ModelSettings
             {
                 InfillPercentage = Fmodel.InfillPercentage,
                 LayerHeight = Fmodel.Layerheight,
                 NozzleDiameter = Fmodel.NozzleDiameter
             };
 
-            var m = new Model3D()
+            var m = new Model3D
             {
                 Description = Fmodel.Description,
                 FilePath = uploadFileName
@@ -109,7 +94,7 @@ namespace TRPZ_PrintService.Pages
             var material = await _context.Materials.FindAsync(Fmodel.MaterialId);
             var pp = await _context.PostProcessings.FindAsync(Fmodel.PostProcessingId);
 
-            var mio = new ModelInOrder()
+            var mio = new ModelInOrder
             {
                 Manager = null,
                 Material = material,
@@ -126,6 +111,21 @@ namespace TRPZ_PrintService.Pages
             await _context.SaveChangesAsync();
 
             return new RedirectToPageResult("/ModelInOrder", "", new {id});
+        }
+
+        public class FormModel
+        {
+            public double Scale { get; set; }
+            public bool HasSolubleSupports { get; set; }
+            public int PostProcessingId { get; set; }
+            public string Description { get; set; }
+
+            public int InfillPercentage { get; set; }
+            public int Layerheight { get; set; }
+            public int NozzleDiameter { get; set; }
+
+            public int PrinterId { get; set; }
+            public int MaterialId { get; set; }
         }
     }
 }

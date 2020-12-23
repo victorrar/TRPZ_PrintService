@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System.Text;
+﻿using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,8 +13,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly IEmailSender _sender;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public RegisterConfirmationModel(UserManager<TRPZ_PrintServiceUser> userManager, IEmailSender sender)
         {
@@ -46,7 +46,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
                 EmailConfirmationUrl = Url.Page(
                     "/Account/ConfirmEmail",
                     null,
-                    new {area = "Identity", userId = userId, code = code, returnUrl = returnUrl},
+                    new {area = "Identity", userId, code, returnUrl},
                     Request.Scheme);
             }
 

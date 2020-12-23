@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -16,8 +15,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ResendEmailConfirmationModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly IEmailSender _emailSender;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public ResendEmailConfirmationModel(UserManager<TRPZ_PrintServiceUser> userManager, IEmailSender emailSender)
         {
@@ -26,11 +25,6 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
         }
 
         [BindProperty] public InputModel Input { get; set; }
-
-        public class InputModel
-        {
-            [Required] [EmailAddress] public string Email { get; set; }
-        }
 
         public void OnGet()
         {
@@ -53,7 +47,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
             var callbackUrl = Url.Page(
                 "/Account/ConfirmEmail",
                 null,
-                new {userId = userId, code = code},
+                new {userId, code},
                 Request.Scheme);
             await _emailSender.SendEmailAsync(
                 Input.Email,
@@ -62,6 +56,11 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();
+        }
+
+        public class InputModel
+        {
+            [Required] [EmailAddress] public string Email { get; set; }
         }
     }
 }

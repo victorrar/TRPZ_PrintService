@@ -12,8 +12,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public ExternalLoginsModel(
             UserManager<TRPZ_PrintServiceUser> userManager,
@@ -34,7 +34,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null) return NotFound($"Unable to load user with ID 'user.Id'.");
+            if (user == null) return NotFound("Unable to load user with ID 'user.Id'.");
 
             CurrentLogins = await _userManager.GetLoginsAsync(user);
             OtherLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync())
@@ -47,7 +47,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostRemoveLoginAsync(string loginProvider, string providerKey)
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null) return NotFound($"Unable to load user with ID 'user.Id'.");
+            if (user == null) return NotFound("Unable to load user with ID 'user.Id'.");
 
             var result = await _userManager.RemoveLoginAsync(user, loginProvider, providerKey);
             if (!result.Succeeded)
@@ -77,7 +77,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnGetLinkLoginCallbackAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null) return NotFound($"Unable to load user with ID 'user.Id'.");
+            if (user == null) return NotFound("Unable to load user with ID 'user.Id'.");
 
             var info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
             if (info == null)

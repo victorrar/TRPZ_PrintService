@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -14,11 +11,11 @@ using TRPZ_PrintService.Areas.Identity.Data;
 
 namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
-    public partial class EmailModel : PageModel
+    public class EmailModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
-        private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
         private readonly IEmailSender _emailSender;
+        private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public EmailModel(
             UserManager<TRPZ_PrintServiceUser> userManager,
@@ -39,14 +36,6 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
         [TempData] public string StatusMessage { get; set; }
 
         [BindProperty] public InputModel Input { get; set; }
-
-        public class InputModel
-        {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "New email")]
-            public string NewEmail { get; set; }
-        }
 
         private async Task LoadAsync(TRPZ_PrintServiceUser user)
         {
@@ -90,7 +79,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
                 var callbackUrl = Url.Page(
                     "/Account/ConfirmEmailChange",
                     null,
-                    new {userId = userId, email = Input.NewEmail, code = code},
+                    new {userId, email = Input.NewEmail, code},
                     Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
@@ -123,7 +112,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
             var callbackUrl = Url.Page(
                 "/Account/ConfirmEmail",
                 null,
-                new {area = "Identity", userId = userId, code = code},
+                new {area = "Identity", userId, code},
                 Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
@@ -132,6 +121,14 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToPage();
+        }
+
+        public class InputModel
+        {
+            [Required]
+            [EmailAddress]
+            [Display(Name = "New email")]
+            public string NewEmail { get; set; }
         }
     }
 }

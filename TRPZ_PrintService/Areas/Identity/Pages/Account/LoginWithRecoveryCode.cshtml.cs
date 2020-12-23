@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -15,8 +13,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LoginWithRecoveryCodeModel : PageModel
     {
-        private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
+        private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
 
         public LoginWithRecoveryCodeModel(SignInManager<TRPZ_PrintServiceUser> signInManager,
             ILogger<LoginWithRecoveryCodeModel> logger)
@@ -29,20 +27,11 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
 
         public string ReturnUrl { get; set; }
 
-        public class InputModel
-        {
-            [BindProperty]
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Recovery Code")]
-            public string RecoveryCode { get; set; }
-        }
-
         public async Task<IActionResult> OnGetAsync(string returnUrl = null)
         {
             // Ensure the user has gone through the username & password screen first
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-            if (user == null) throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+            if (user == null) throw new InvalidOperationException("Unable to load two-factor authentication user.");
 
             ReturnUrl = returnUrl;
 
@@ -54,7 +43,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
             if (!ModelState.IsValid) return Page();
 
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
-            if (user == null) throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+            if (user == null) throw new InvalidOperationException("Unable to load two-factor authentication user.");
 
             var recoveryCode = Input.RecoveryCode.Replace(" ", string.Empty);
 
@@ -71,12 +60,19 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
                 _logger.LogWarning("User with ID '{UserId}' account locked out.", user.Id);
                 return RedirectToPage("./Lockout");
             }
-            else
-            {
-                _logger.LogWarning("Invalid recovery code entered for user with ID '{UserId}' ", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
-                return Page();
-            }
+
+            _logger.LogWarning("Invalid recovery code entered for user with ID '{UserId}' ", user.Id);
+            ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
+            return Page();
+        }
+
+        public class InputModel
+        {
+            [BindProperty]
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Recovery Code")]
+            public string RecoveryCode { get; set; }
         }
     }
 }

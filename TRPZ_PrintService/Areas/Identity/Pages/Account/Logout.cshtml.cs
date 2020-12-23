@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +11,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
+        private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
 
         public LogoutModel(SignInManager<TRPZ_PrintServiceUser> signInManager, ILogger<LogoutModel> logger)
         {
@@ -33,8 +30,7 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
                 return LocalRedirect(returnUrl);
-            else
-                return RedirectToPage();
+            return RedirectToPage();
         }
     }
 }

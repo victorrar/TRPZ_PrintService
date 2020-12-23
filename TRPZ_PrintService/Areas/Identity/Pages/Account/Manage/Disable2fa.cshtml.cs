@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,8 +10,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
     public class Disable2faModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly ILogger<Disable2faModel> _logger;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public Disable2faModel(
             UserManager<TRPZ_PrintServiceUser> userManager,

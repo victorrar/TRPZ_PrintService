@@ -9,8 +9,8 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
     public class PersonalDataModel : PageModel
     {
-        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public PersonalDataModel(
             UserManager<TRPZ_PrintServiceUser> userManager,

@@ -1,11 +1,14 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using TRPZ_PrintService.Areas.Identity.Data;
 
 namespace TRPZ_PrintService.Data
 {
     public class ModelInOrder
     {
+        public ModelInOrder()
+        {
+            Scale = 1;
+        }
+
         public int ModelInOrderId { get; set; }
         public double Scale { get; set; }
         public bool HasSolubleSupports { get; set; } //restricts usage only on multi-material printers
@@ -18,11 +21,6 @@ namespace TRPZ_PrintService.Data
         public TRPZ_PrintServiceUser Manager { get; set; }
         public Printer Printer { get; set; }
         public Model3D Model { get; set; }
-
-        public ModelInOrder()
-        {
-            Scale = 1;
-        }
 
         public override string ToString()
         {

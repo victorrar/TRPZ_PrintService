@@ -3,14 +3,12 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TRPZ_PrintService.Data;
 
 namespace TRPZ_PrintService.Migrations
 {
     [DbContext(typeof(TRPZ_PrintServiceContext))]
-    internal partial class TRPZ_PrintServiceContextModelSnapshot : ModelSnapshot
+    internal class TRPZ_PrintServiceContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

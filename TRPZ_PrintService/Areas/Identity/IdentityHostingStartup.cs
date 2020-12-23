@@ -1,14 +1,12 @@
-﻿using System;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TRPZ_PrintService.Areas.Identity;
 using TRPZ_PrintService.Areas.Identity.Data;
 using TRPZ_PrintService.Data;
 
-[assembly: HostingStartup(typeof(TRPZ_PrintService.Areas.Identity.IdentityHostingStartup))]
+[assembly: HostingStartup(typeof(IdentityHostingStartup))]
 
 namespace TRPZ_PrintService.Areas.Identity
 {

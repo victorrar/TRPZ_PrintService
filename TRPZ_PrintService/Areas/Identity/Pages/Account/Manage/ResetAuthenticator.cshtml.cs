@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,9 +9,9 @@ namespace TRPZ_PrintService.Areas.Identity.Pages.Account.Manage
 {
     public class ResetAuthenticatorModel : PageModel
     {
-        private UserManager<TRPZ_PrintServiceUser> _userManager;
         private readonly SignInManager<TRPZ_PrintServiceUser> _signInManager;
-        private ILogger<ResetAuthenticatorModel> _logger;
+        private readonly ILogger<ResetAuthenticatorModel> _logger;
+        private readonly UserManager<TRPZ_PrintServiceUser> _userManager;
 
         public ResetAuthenticatorModel(
             UserManager<TRPZ_PrintServiceUser> userManager,

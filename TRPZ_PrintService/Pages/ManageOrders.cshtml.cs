@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,16 +12,16 @@ namespace TRPZ_PrintService.Pages
 {
     public class ManageOrders : PageModel
     {
-        private TRPZ_PrintServiceContext _context;
+        private readonly TRPZ_PrintServiceContext _context;
         private UserManager<TRPZ_PrintServiceUser> _userManager;
-
-        public IList<Order> Orders { get; set; }
 
         public ManageOrders(TRPZ_PrintServiceContext context, UserManager<TRPZ_PrintServiceUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
+
+        public IList<Order> Orders { get; set; }
 
         public async Task<IActionResult> OnGet(string? type)
         {
