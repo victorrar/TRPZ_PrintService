@@ -71,6 +71,8 @@ namespace TRPZ_PrintService.Pages
             Materials = new SelectList(_context.Materials.ToList(), nameof(Material.MaterialId), nameof(Material.Name));
             PostProcessings = new SelectList(_context.PostProcessings.ToList(), nameof(PostProcessing.PostProcessingId), nameof(PostProcessing.Name));
 
+            Fmodel = new FormModel();
+            Fmodel.Scale = 100;
 
             return Page();
         }

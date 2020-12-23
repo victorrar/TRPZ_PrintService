@@ -34,6 +34,7 @@ namespace TRPZ_PrintService.Pages
 
             public int PrinterId { get; set; }
             public int MaterialId { get; set; }
+            public int Price { get; set; }
         }
 
         [BindProperty] public FormModel Fmodel { get; set; }
@@ -68,6 +69,8 @@ namespace TRPZ_PrintService.Pages
             Fmodel.HasSolubleSupports = mio.HasSolubleSupports;
             Fmodel.PostProcessingId = mio.PostProcessing.PostProcessingId;
 
+            Fmodel.Price = mio.PriceTotal;
+
             Printers = new SelectList(_context.Printers.ToList(), nameof(Printer.PrinterId), nameof(Printer.Name));
             Materials = new SelectList(_context.Materials.ToList(), nameof(Material.MaterialId), nameof(Material.Name));
             PostProcessings = new SelectList(_context.PostProcessings.ToList(), nameof(PostProcessing.PostProcessingId),
@@ -99,15 +102,17 @@ namespace TRPZ_PrintService.Pages
             mio.HasSolubleSupports = Fmodel.HasSolubleSupports;
             mio.PostProcessing.PostProcessingId = Fmodel.PostProcessingId;
 
+            mio.PriceTotal = Fmodel.Price;
+
             // Printers = new SelectList(_context.Printers.ToList(), nameof(Printer.PrinterId), nameof(Printer.Name));
             // Materials = new SelectList(_context.Materials.ToList(), nameof(Material.MaterialId), nameof(Material.Name));
             // PostProcessings = new SelectList(_context.PostProcessings.ToList(), nameof(PostProcessing.PostProcessingId),
             //     nameof(PostProcessing.Name));
 
             _context.SaveChanges();
-            
 
-            return new RedirectToPageResult("/ModelInOrder", "", new{id = order.OrderId});
+
+            return new RedirectToPageResult("/ModelInOrder", "", new {id = order.OrderId});
         }
     }
 }

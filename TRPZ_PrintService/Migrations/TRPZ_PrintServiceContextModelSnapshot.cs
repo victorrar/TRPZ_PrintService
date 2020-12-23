@@ -345,16 +345,10 @@ namespace TRPZ_PrintService.Migrations
                     b.Property<string>("ClientId")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsFinished")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsSent")
-                        .HasColumnType("boolean");
-
                     b.Property<int?>("PromoCodeId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Timestamp")
@@ -552,8 +546,9 @@ namespace TRPZ_PrintService.Migrations
             modelBuilder.Entity("TRPZ_PrintService.Data.Order", b =>
                 {
                     b.HasOne("TRPZ_PrintService.Areas.Identity.Data.TRPZ_PrintServiceUser", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientId");
+                        .WithMany("Orders")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("TRPZ_PrintService.Data.PromoCode", "PromoCode")
                         .WithMany("Orders")
@@ -562,6 +557,11 @@ namespace TRPZ_PrintService.Migrations
                     b.Navigation("Client");
 
                     b.Navigation("PromoCode");
+                });
+
+            modelBuilder.Entity("TRPZ_PrintService.Areas.Identity.Data.TRPZ_PrintServiceUser", b =>
+                {
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("TRPZ_PrintService.Data.Material", b =>

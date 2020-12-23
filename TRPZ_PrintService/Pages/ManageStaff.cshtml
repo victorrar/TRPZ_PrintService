@@ -51,22 +51,22 @@
 
                     @if (!uRole.roles.Contains("Admin"))
                     {
-                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Admin" >
+                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Admin">
                             <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make admin</button>
                         </form>                    }
                     @if (!uRole.roles.Contains("Manager"))
                     {
-                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Manager" >
+                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Manager">
                             <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make manager</button>
                         </form>                    }
 
 
-                    <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id"  >
-                        <button class="list-group-item list-group-item-action list-group-item-primary" asp-route-role="Client" type="submit">Make Client</button>
+                    <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Client">
+                        <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make Client</button>
                     </form>
 
 
-                    <form asp-page-handler="Delete" asp-route-userId="@uRole.user.Id" >
+                    <form asp-page-handler="Delete" asp-route-userId="@uRole.user.Id">
                         <button class="list-group-item list-group-item-action list-group-item-danger" type="submit">Delete</button>
                     </form>
 

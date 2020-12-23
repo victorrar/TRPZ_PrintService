@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using TRPZ_PrintService.Data;
 
 namespace TRPZ_PrintService.Areas.Identity.Data
 {
@@ -11,5 +12,6 @@ namespace TRPZ_PrintService.Areas.Identity.Data
     {
         [PersonalData] public string FirstName { get; set; }
         [PersonalData] public string LastName { get; set; }
+        public IList<Order> Orders {get; set; }
     }
 }

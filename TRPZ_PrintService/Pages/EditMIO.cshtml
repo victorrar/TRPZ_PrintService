@@ -7,7 +7,13 @@
 
 <form asp-page-handler="Edit" asp-route-mioid="@Model.mio.ModelInOrderId" enctype="multipart/form-data">
     <div class="">
-        <h4>Any Heading</h4>
+        <h4>Edit model</h4>
+        @if (User.IsInRole("Manager"))
+        {
+            <label>Price</label>
+            <input class="form-control" type="number" asp-for="Fmodel.Price"/>            <br/>
+        }
+        
         <label>Description</label>
         <input class="form-control" type="text" asp-for="Fmodel.Description"/><br/>
 

@@ -1,5 +1,6 @@
 @page
 @using System.Collections
+@using TRPZ_PrintService.Data
 @model TRPZ_PrintService.Pages.MyOrders
 
 @{
@@ -19,10 +20,13 @@
             Status
         </th>
         <th>
+            Price
+        </th>
+        <th>
             Creation date
         </th>
         <th>
-            Models
+            Models count
         </th>
         <th>
             &nbsp;
@@ -37,37 +41,60 @@
                 @Html.DisplayFor(modelItem => order.OrderId)
             </td>
             <td>
-                @if (order.IsSent)
+                @switch (order.Status)
                 {
-                    <span>Sent</span>
-                }
-                else if (order.IsConfirmed)
-                {
-                    <span>Confirmed</span>
-                }
-                else if (order.IsFinished)
-                {
-                    <span>Finished</span>
-                }
-                else
-                {
-                    <span>Not sent</span>
-                }
+                    case Order.OrderStatus.NotSent:
+                        <span>Not sent</span>
+                        break;
+                    case Order.OrderStatus.Sent:
+                        <span>Sent</span>
+                        break;
+                    case Order.OrderStatus.Confirmed:
+                        <span>Confirmed</span>
 
+                        break;
+                    case Order.OrderStatus.Finished:
+                        <span>Finished</span>
+
+                        break;
+                    case Order.OrderStatus.Cancelled:
+                        <span>Cancelled</span>
+
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.PriceTotal)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => order.Timestamp)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => order.Models.Count)
-                @* TODO add edit button *@
-                <a asp-page="/ModelInOrder" asp-route-id="@order.OrderId"><button class="btn btn-primary">Models</button></a>
             </td>
-            <td>
-                @if (!(order.IsConfirmed || order.IsFinished))
-                {
-                    <form asp-page-handler="Remove" asp-route-orderId="@order.OrderId"><button class="btn btn-danger" type="submit">Remove</button></form>
-                }
+            <td >
+                <div class="d-flex">
+                    <a asp-page="/ModelInOrder" asp-route-id="@order.OrderId" class="mr-2">
+                        <button class="btn btn-primary">Models</button>
+                    </a>
+                    @if ((order.Status == Order.OrderStatus.NotSent))
+                    {
+                        <form asp-page-handler="Send" asp-route-orderId="@order.OrderId" class="mr-2">
+                            <button class="btn btn-primary" type="submit">Send</button>
+                        </form>                    }
+                    @if ((order.Status == Order.OrderStatus.NotSent))
+                    {
+                        <form asp-page-handler="Remove" asp-route-orderId="@order.OrderId" class="mr-2">
+                            <button class="btn btn-danger" type="submit">Remove</button>
+                        </form>                    }
+                    @if ((order.Status == Order.OrderStatus.Sent))
+                    {
+                        <form asp-page-handler="Cancel" asp-route-orderId="@order.OrderId" class="mr-2">
+                            <button class="btn btn-warning" type="submit">Cancel</button>
+                        </form>                    }
+                </div>
             </td>
         </tr>
     }
@@ -75,8 +102,7 @@
 </table>
 @* TODO add modal add window*@
 <form asp-page-handler="Create">
-<button type="submit" class="btn btn-primary" >
-    New Order
-</button>
+    <button type="submit" class="btn btn-primary">
+        New Order
+    </button>
 </form>
-

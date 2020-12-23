@@ -28,14 +28,28 @@ namespace TRPZ_PrintService.Pages
         {
             id ??= User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            Orders = _context.Orders.Include(order => order.Models).Where(order => order.Client.Id == id).ToList();
+            Orders = _context.Orders
+                .Include(order => order.Models)
+                .Where(order => order.Client.Id == id)
+                .OrderByDescending(order => order.Timestamp)
+                .ToList();
         }
 
         public async Task<IActionResult> OnPostSend(string? id, int orderId)
         {
             id ??= User.FindFirstValue(ClaimTypes.NameIdentifier);
             var order = _context.Orders.Find(orderId);
-            order.IsSent = true;
+            order.Status = Order.OrderStatus.Sent;
+            await _context.SaveChangesAsync();
+            
+            return new RedirectToPageResult("/MyOrders", "");
+        }
+        
+        public async Task<IActionResult> OnPostCancel(string? id, int orderId)
+        {
+            id ??= User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var order = _context.Orders.Find(orderId);
+            order.Status = Order.OrderStatus.Cancelled;
             await _context.SaveChangesAsync();
             
             return new RedirectToPageResult("/MyOrders", "");

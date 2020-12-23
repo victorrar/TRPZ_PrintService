@@ -116,6 +116,12 @@
           <e p="20201222133724_casc1.Designer.cs" t="Include" />
           <e p="20201222134232_casc2.cs" t="Include" />
           <e p="20201222134232_casc2.Designer.cs" t="Include" />
+          <e p="20201222193109_status_enum.cs" t="Include" />
+          <e p="20201222193109_status_enum.Designer.cs" t="Include" />
+          <e p="20201223002305_calc_prop.cs" t="Include" />
+          <e p="20201223002305_calc_prop.Designer.cs" t="Include" />
+          <e p="20201223010653_client_orders.cs" t="Include" />
+          <e p="20201223010653_client_orders.Designer.cs" t="Include" />
           <e p="TRPZ_PrintServiceContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -143,6 +149,8 @@
           <e p="ModelInOrder.cshtml.cs" t="Include" />
           <e p="MyOrders.cshtml" t="Include" />
           <e p="MyOrders.cshtml.cs" t="Include" />
+          <e p="OrderManage.cshtml" t="Include" />
+          <e p="OrderManage.cshtml.cs" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
           <e p="Privacy.cshtml.cs" t="Include" />
           <e p="Shared" t="Include">
@@ -161,28 +169,10 @@
         <e p="Startup.cs" t="Include" />
         <e p="TRPZ_PrintService.csproj" t="IncludeRecursive" />
         <e p="uploads" t="Include">
-          <e p="Amolet.stl_637442177037608189" t="Include" />
-          <e p="Amolet3 (2).stl_637442176642590876" t="Include" />
-          <e p="DICK (small).stl_20" t="Include" />
-          <e p="DICK (small).stl_637442476849554503" t="Include" />
-          <e p="DICK-opalubka.stl_608" t="Include" />
-          <e p="DICK-opalubka.stl_637442157237044582" t="Include" />
-          <e p="DICK-opalubka.stl_637442169440671844" t="Include" />
-          <e p="DICK-opalubka.stl_637442170509572483" t="Include" />
-          <e p="DICK-opalubka.stl_637442171072820683" t="Include" />
-          <e p="DICK-opalubka.stl_637442174534378970" t="Include" />
-          <e p="DICK.stl_637442155279327152" t="Include" />
-          <e p="DICK.stl_637442155373888837" t="Include" />
-          <e p="DICK.stl_637442156284280425" t="Include" />
-          <e p="DICK.stl_637442158575363723" t="Include" />
-          <e p="DICK.stl_637442170257023752" t="Include" />
-          <e p="DICK.stl_637442173078978892" t="Include" />
-          <e p="DICK.stl_637442173732617344" t="Include" />
-          <e p="DICK.stl_637442174259106184" t="Include" />
-          <e p="DICK.stl_637442175383700402" t="Include" />
-          <e p="DICK.stl_637442180845769547" t="Include" />
-          <e p="DICK.stl_637442486355971023" t="Include" />
-          <e p="DICK.stl_637442515206661356" t="Include" />
+          <e p="Bunny-LowPoly.stl_637442912405815882" t="Include" />
+          <e p="DICK (small).stl_637442906789147549" t="Include" />
+          <e p="fox.stl_637442912208585736" t="Include" />
+          <e p="pikachu_1gen_flowalistik (repaired) (repaired) (repaired).stl_637442912674077061" t="Include" />
         </e>
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">

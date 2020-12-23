@@ -40,6 +40,10 @@ namespace TRPZ_PrintService.Data
                 .HasOne(o => o.ModelSettings)
                 .WithOne(settings => settings.ModelInOrder)
                 .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Client)
+                .WithMany(settings => settings.Orders)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

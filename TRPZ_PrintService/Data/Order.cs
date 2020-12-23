@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using TRPZ_PrintService.Areas.Identity.Data;
 
 namespace TRPZ_PrintService.Data
@@ -9,15 +11,30 @@ namespace TRPZ_PrintService.Data
         public int OrderId { get; set; }
         public DateTime Timestamp { get; set; }
         public TimeSpan TotalPrintTime { get; set; }
-        public bool IsSent { get; set; }
-        public bool IsConfirmed { get; set; }
-        public bool IsFinished { get; set; }
+        public OrderStatus Status { get; set; }
 
         public TRPZ_PrintServiceUser Client { get; set; }
         public PromoCode PromoCode { get; set; }
 
         public List<ModelInOrder> Models { get; set; }
+        
+        [NotMapped]
+        public int PriceTotal
+        {
+            get { return Models.Sum(x => x.PriceTotal) + Models.Sum(x => x.PostProcessing.Price); }
+        }
+        
+        
 
+        public enum OrderStatus
+        {
+            NotSent,
+            Sent,
+            Confirmed,
+            Finished,
+            Cancelled,
+            
+        }
         public Order()
         {
             Models = new List<ModelInOrder>();

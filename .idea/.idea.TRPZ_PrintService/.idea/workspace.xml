@@ -8,122 +8,61 @@
     <projectFile>WebApplication1/WebApplication1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b5dbc12-a869-47a6-8787-baa8279cf41b" name="Default Changelist" comment="Init">
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/AccessDenied.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/AccessDenied.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ConfirmEmail.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ConfirmEmail.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ExternalLogin.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ExternalLogin.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ForgotPassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Lockout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Lockout.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Login.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/LoginWith2fa.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/LoginWith2fa.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Logout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Logout.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/Email.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/Email.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ManageNavPages.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ResetPassword.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ResetPassword.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/_StatusMessage.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201222133724_casc1.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201222133724_casc1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201222134232_casc2.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201222134232_casc2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/Amolet.stl_637442177037608189" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/Amolet3 (2).stl_637442176642590876" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK (small).stl_20" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK (small).stl_637442476849554503" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_608" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442157237044582" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442169440671844" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442170509572483" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442171072820683" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442174534378970" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442155279327152" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442155373888837" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442156284280425" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442158575363723" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442170257023752" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442173078978892" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442173732617344" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442174259106184" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442175383700402" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442180845769547" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442486355971023" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442515206661356" afterDir="false" />
+    <list default="true" id="1b5dbc12-a869-47a6-8787-baa8279cf41b" name="Default Changelist" comment="V2">
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201222193109_status_enum.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201222193109_status_enum.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201223002305_calc_prop.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201223002305_calc_prop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201223010653_client_orders.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/20201223010653_client_orders.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/OrderManage.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/OrderManage.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/Bunny-LowPoly.stl_637442912405815882" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/fox.stl_637442912208585736" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/pikachu_1gen_flowalistik (repaired) (repaired) (repaired).stl_637442912674077061" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TRPZ_PrintService/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TRPZ_PrintService/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TRPZ_PrintService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TRPZ_PrintService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/TRPZ_PrintService/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/TRPZ_PrintService/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/IdentityHostingStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/IdentityHostingStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Register.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/Client.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/ModelInOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Data/ModelInOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/ModelSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Data/ModelSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Data/Order.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/TRPZ_PrintServiceContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Migrations/TRPZ_PrintServiceContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/TRPZ_PrintService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/TRPZ_PrintService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/Amolet.stl_637442177037608189" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/Amolet3 (2).stl_637442176642590876" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK (small).stl_20" beforeDir="false" afterPath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK (small).stl_637442906789147549" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK (small).stl_637442476849554503" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_608" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442157237044582" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442169440671844" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442170509572483" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442171072820683" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK-opalubka.stl_637442174534378970" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442155279327152" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442155373888837" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442156284280425" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442158575363723" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442170257023752" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442173078978892" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442173732617344" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442174259106184" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442175383700402" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442180845769547" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442486355971023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRPZ_PrintService/uploads/DICK.stl_637442515206661356" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,12 +73,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EB5B981F-DE43-45AA-B9D6-337D29C4C9E1/14/IHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C80B499D-ADA7-49E0-A8EE-7A9B1744160B/41A/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4872CAEE-9618-4729-81F5-BD8009768399/28/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0C9362F5-E61F-45F1-99F7-8BD3B6377305/3/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C80B499D-ADA7-49E0-A8EE-7A9B1744160B/42/963edda3/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EB5B981F-DE43-45AA-B9D6-337D29C4C9E1/14/IHostEnvironment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Victor/RiderProjects/TRPZ_PrintService/TRPZ_PrintService/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C80B499D-ADA7-49E0-A8EE-7A9B1744160B/2C2/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Victor/RiderProjects/TRPZ_PrintService/TRPZ_PrintService/Pages/EditMIO.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Victor/RiderProjects/TRPZ_PrintService/TRPZ_PrintService/Pages/EditMIO.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4872CAEE-9618-4729-81F5-BD8009768399/30/PageActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/C80B499D-ADA7-49E0-A8EE-7A9B1744160B/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -156,26 +102,30 @@
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Data/Manaer.cs" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Data/Manager.cs" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Data/ModelInOrder.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Startup.cs" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/IdentityHostingStartup.cs" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/ModelInOrder.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/Order.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceContext.cs" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/ModelSettings.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Register.cshtml.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/OrderManage.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml" />
-      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml" />
       <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageOrders.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Areas/Identity/Pages/Account/Login.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/Index.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/Shared/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceUser.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/TRPZ_PrintServiceContext.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Data/Order.cs" />
+      <option value="$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lz8diR0Mp3hghjC96M0z7NBcgA" />
@@ -270,7 +220,9 @@
       <option name="presentableId" value="Default" />
       <updated>1608588651375</updated>
       <workItem from="1608588657959" duration="697000" />
-      <workItem from="1608589949188" duration="37239000" />
+      <workItem from="1608589949188" duration="37278000" />
+      <workItem from="1608663536821" duration="9145000" />
+      <workItem from="1608681443476" duration="6037000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1608600173009</created>
@@ -279,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608600173009</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="V2">
+      <created>1608663108465</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608663108465</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,136 +256,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="V2" />
+    <MESSAGE value="Functional version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functional version" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs</url>
-          <line>126</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\ModelInOrder.cshtml.cs" initialLine="125" containingFunctionPresentation="method 'OnPostCreate'">
-            <startOffsets>
-              <option value="4478" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4500" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/ModelInOrder.cshtml.cs</url>
-          <line>80</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\ModelInOrder.cshtml.cs" initialLine="80" containingFunctionPresentation="method 'OnPostRemove'">
-            <startOffsets>
-              <option value="2771" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2816" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml.cs</url>
-          <line>40</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\MyOrders.cshtml.cs" initialLine="40" containingFunctionPresentation="method 'OnPostSend'">
-            <startOffsets>
-              <option value="1213" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1262" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/MyOrders.cshtml.cs</url>
-          <line>35</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\MyOrders.cshtml.cs" initialLine="35" containingFunctionPresentation="method 'OnPostSend'">
-            <startOffsets>
-              <option value="998" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1052" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs</url>
-          <line>58</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\EditMIO.cshtml.cs" initialLine="55" containingFunctionPresentation="method 'OnGetEdit'">
-            <startOffsets>
-              <option value="1859" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1877" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs</url>
-          <line>89</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\EditMIO.cshtml.cs" initialLine="86" containingFunctionPresentation="method 'OnPostEdit'">
-            <startOffsets>
-              <option value="3401" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3419" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/EditMIO.cshtml.cs</url>
-          <line>106</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\EditMIO.cshtml.cs" initialLine="105" containingFunctionPresentation="method 'OnPostEdit'">
-            <startOffsets>
-              <option value="4417" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4440" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs</url>
-          <line>53</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\ManageStaff.cshtml.cs" initialLine="50" containingFunctionPresentation="method 'OnPostSetRole'">
-            <startOffsets>
-              <option value="1541" />
-              <option value="1592" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1618" />
-              <option value="1616" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TRPZ_PrintService/Pages/ManageStaff.cshtml.cs</url>
-          <line>81</line>
-          <properties documentPath="C:\Users\Victor\RiderProjects\TRPZ_PrintService\TRPZ_PrintService\Pages\ManageStaff.cshtml.cs" initialLine="81" containingFunctionPresentation="method 'OnPostDelete'">
-            <startOffsets>
-              <option value="2530" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2607" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#TRPZ_PrintService.Data.ModelInOrder" memberName="Order" />

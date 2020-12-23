@@ -62,7 +62,7 @@ namespace TRPZ_PrintService.Pages
 
             if (role == "Manager")
             {
-                await _userManager.RemoveFromRoleAsync(user, "Admin");
+                // await _userManager.RemoveFromRoleAsync(user, "Admin");
                 await _userManager.AddToRoleAsync(user, "Manager");
             }
 
@@ -72,8 +72,6 @@ namespace TRPZ_PrintService.Pages
                 await _userManager.RemoveFromRoleAsync(user, "Manager");
                 await _userManager.AddToRoleAsync(user, "Client");
             }
-
-
             return new RedirectToPageResult("/ManageStaff", "");
         }
 

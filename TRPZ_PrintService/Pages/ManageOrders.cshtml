@@ -1,17 +1,19 @@
 @page
+@using TRPZ_PrintService.Data
 @model TRPZ_PrintService.Pages.ManageOrders
 
 @{
     Layout = "Shared/_Layout";
 }
+<h2>Orders</h2>
 <table class="table">
     <thead>
     <tr>
         <th>
-            Client
+            OrderId
         </th>
         <th>
-            OrderId
+            Client
         </th>
         <th>
             Order Status
@@ -25,52 +27,69 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var uRole in Model.UsersRoles)
+    @foreach (var order in Model.Orders)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => uRole.user.Id)
+                @Html.DisplayFor(modelItem => order.OrderId)
+
             </td>
             <td>
-                @Html.DisplayFor(modelItem => uRole.user.FirstName)
-                @Html.DisplayFor(modelItem => uRole.user.LastName)
+                @Html.DisplayFor(modelItem => order.Client.FirstName)
+                @Html.DisplayFor(modelItem => order.Client.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => uRole.user.UserName)
-            </td>
-            <td>
-                @foreach (var role in uRole.roles)
+                @switch (order.Status)
                 {
-                    @Html.DisplayFor(modelItem => role)
-                    <br/>
+                    case Order.OrderStatus.NotSent:
+                        <span>Not sent</span>
+                        break;
+                    case Order.OrderStatus.Sent:
+                        <span>Sent</span>
+                        break;
+                    case Order.OrderStatus.Confirmed:
+                        <span>Confirmed</span>
+
+                        break;
+                    case Order.OrderStatus.Finished:
+                        <span>Finished</span>
+
+                        break;
+                    case Order.OrderStatus.Cancelled:
+                        <span>Cancelled</span>
+
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             </td>
             <td>
-                <ul class="list-group">
+                @Html.DisplayFor(modelItem => order.Models.Count)
 
-                    @if (!uRole.roles.Contains("Admin"))
+            </td>
+            <td>
+                <div class="d-flex">
+                    <a asp-page="/ModelInOrder" asp-route-id="@order.OrderId" class="mr-2">
+                        <button class="btn btn-info">Models</button>
+                    </a>
+                    @if (order.Status == Order.OrderStatus.Sent)
                     {
-                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Admin" >
-                            <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make admin</button>
+                        <form asp-page-handler="SetStatus" asp-route-orderId="@order.OrderId" asp-route-status="confirmed" class="mr-2">
+                            <button class="btn btn-primary" type="submit">Confirm</button>
                         </form>                    }
-                    @if (!uRole.roles.Contains("Manager"))
+                    @if (order.Status == Order.OrderStatus.Confirmed)
                     {
-                        <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id" asp-route-role="Manager" >
-                            <button class="list-group-item list-group-item-action list-group-item-primary" type="submit">Make manager</button>
+                        <form asp-page-handler="SetStatus" asp-route-orderId="@order.OrderId" asp-route-status="finished" class="mr-2">
+                            <button class="btn btn-primary" type="submit">Finish</button>
+                        </form>                    }
+                    @if (order.Status == Order.OrderStatus.Sent ||
+                         order.Status == Order.OrderStatus.Confirmed)
+                    {
+                        <form asp-page-handler="SetStatus" asp-route-orderId="@order.OrderId" asp-route-status="cancelled" class="mr-2">
+                            <button class="btn btn-warning" type="submit">Cancel</button>
                         </form>                    }
 
-
-                    <form asp-page-handler="SetRole" asp-route-userId="@uRole.user.Id"  >
-                        <button class="list-group-item list-group-item-action list-group-item-primary" asp-route-role="Client" type="submit">Make Client</button>
-                    </form>
-
-
-                    <form asp-page-handler="Delete" asp-route-userId="@uRole.user.Id" >
-                        <button class="list-group-item list-group-item-action list-group-item-danger" type="submit">Delete</button>
-                    </form>
-
-                </ul>
-
+                </div>
             </td>
         </tr>
     }
