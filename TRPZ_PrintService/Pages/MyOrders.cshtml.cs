@@ -27,6 +27,7 @@ namespace TRPZ_PrintService.Pages
 
             Orders = _context.Orders
                 .Include(order => order.Models)
+                .ThenInclude(order => order.PostProcessing)
                 .Where(order => order.Client.Id == id)
                 .OrderByDescending(order => order.Timestamp)
                 .ToList();

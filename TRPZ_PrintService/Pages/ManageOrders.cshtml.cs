@@ -30,6 +30,7 @@ namespace TRPZ_PrintService.Pages
                 Orders = await _context.Orders
                     .Include(order => order.Client)
                     .Include(order => order.Models)
+                    .ThenInclude(order => order.PostProcessing)
                     .Where(order => order.Status == Order.OrderStatus.Sent ||
                                     order.Status == Order.OrderStatus.Confirmed)
                     .OrderByDescending(order => order.Timestamp)
@@ -38,6 +39,7 @@ namespace TRPZ_PrintService.Pages
                 Orders = await _context.Orders
                     .Include(order => order.Client)
                     .Include(order => order.Models)
+                    .ThenInclude(order => order.PostProcessing)
                     .Where(order => order.Status != Order.OrderStatus.NotSent)
                     .OrderByDescending(order => order.Timestamp)
                     .ToListAsync();

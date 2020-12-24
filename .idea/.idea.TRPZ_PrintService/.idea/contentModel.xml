@@ -93,6 +93,7 @@
           </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ClassDiagram.cd" t="Include" />
         <e p="Data" t="Include">
           <e p="Material.cs" t="Include" />
           <e p="Model3D.cs" t="Include" />
@@ -169,9 +170,21 @@
         <e p="Startup.cs" t="Include" />
         <e p="TRPZ_PrintService.csproj" t="IncludeRecursive" />
         <e p="uploads" t="Include">
+          <e p="10_Letters_Inner_Core.stl_637442920647630116" t="Include" />
+          <e p="10_Letters_Outer_Core.stl_637442920754582979" t="Include" />
           <e p="Bunny-LowPoly.stl_637442912405815882" t="Include" />
+          <e p="chainmail_flowalistik.stl_637442921148450057" t="Include" />
           <e p="DICK (small).stl_637442906789147549" t="Include" />
+          <e p="EiffelTower_fixed.stl_637442922554942929" t="Include" />
+          <e p="EiffelTower_fixed.stl_637443447442296319" t="Include" />
+          <e p="EiffelTower_fixed.stl_637443683008842787" t="Include" />
+          <e p="EiffelTower_fixed.stl_637443684112200114" t="Include" />
           <e p="fox.stl_637442912208585736" t="Include" />
+          <e p="LOW_RES_-_CRUSHED.stl_637442921438617201" t="Include" />
+          <e p="LOW_RES_-_LOWPOLY.stl_637442921548609781" t="Include" />
+          <e p="LOW_RES_-_MINECRAFT_supports_needed.stl_637442922324839529" t="Include" />
+          <e p="Micro_Catapult_INC._TOL..STL_637442920366152687" t="Include" />
+          <e p="Micro_Catapult_v1.1.STL_637442920120737963" t="Include" />
           <e p="pikachu_1gen_flowalistik (repaired) (repaired) (repaired).stl_637442912674077061" t="Include" />
         </e>
         <e p="wwwroot" t="Include">

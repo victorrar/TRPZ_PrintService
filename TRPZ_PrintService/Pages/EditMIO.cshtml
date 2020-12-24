@@ -18,11 +18,11 @@
         <input class="form-control" type="text" asp-for="Fmodel.Description"/><br/>
 
         <label>Material</label>
-        <select asp-for="Fmodel.MaterialId" asp-items="Model.Materials"></select>
+        <select class="form-control" asp-for="Fmodel.MaterialId" asp-items="Model.Materials"></select>
         <br/>
 
         <label>Printer</label>
-        <select asp-for="Fmodel.PrinterId" asp-items="Model.Printers"></select>
+        <select class="form-control" asp-for="Fmodel.PrinterId" asp-items="Model.Printers"></select>
         <br/>
 
         <label>Scale</label>
@@ -30,7 +30,7 @@
         <br/>
 
         <label>Post-processing</label>
-        <select asp-for="Fmodel.PostProcessingId" asp-items="Model.PostProcessings"></select>
+        <select class="form-control" asp-for="Fmodel.PostProcessingId" asp-items="Model.PostProcessings"></select>
         <br/>
 
         <label>HasSolubleSupports</label>

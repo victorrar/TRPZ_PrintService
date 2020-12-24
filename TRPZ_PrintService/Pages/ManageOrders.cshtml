@@ -19,6 +19,9 @@
             Order Status
         </th>
         <th>
+            Price
+        </th>
+        <th>
             Models
         </th>
         <th>
@@ -62,6 +65,9 @@
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.PriceTotal)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => order.Models.Count)
